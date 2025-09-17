@@ -27,6 +27,7 @@ export default function Expenseform({ addExpense,itemtoedit}) {
   };
 
   return (
+     <div className="ExpenseForm">
     <div>
       <form onSubmit={handlesubmit}>
         <label>Title</label>&nbsp; 
@@ -48,6 +49,7 @@ export default function Expenseform({ addExpense,itemtoedit}) {
         <button type="submit">{itemtoedit ? "Update expense":"Add expense"}</button>
         
       </form>
+    </div>
     </div>
   );
 }

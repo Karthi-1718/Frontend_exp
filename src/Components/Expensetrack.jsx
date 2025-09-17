@@ -11,6 +11,8 @@ const Expenses = [
 ];
 
 export default function ExpenseTrack() {
+
+  
   const [expense, setExpense] = useState(Expenses);
   const [itemtoedit, setItemtoedit] = useState(null);  // ✅ use null
 
@@ -56,6 +58,7 @@ export default function ExpenseTrack() {
   };
 
   return (
+    <div className="ExpenseTrack">
     <div>
       <h2>Expense Tracker</h2>
       <Expenseform addExpense={addExpense} itemtoedit={itemtoedit} />
@@ -65,6 +68,7 @@ export default function ExpenseTrack() {
         delexpense={deleteExpense}
         editexpense={setItemtoedit}
       />
+    </div>
     </div>
   );
 }

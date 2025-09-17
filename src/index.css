@@ -1,68 +1,317 @@
+/* index.css - Enhanced with modern, attractive styling */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* Color palette */
+  --primary: #4361ee;
+  --primary-dark: #3a0ca3;
+  --primary-light: #4895ef;
+  --secondary: #f72585;
+  --accent: #4cc9f0;
+  --success: #4ade80;
+  --warning: #f9c74f;
+  --danger: #f94144;
+  --light-bg: #f8f9fa;
+  --dark-text: #212529;
+  --light-text: #f8f9fa;
+  --card-bg: #ffffff;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   min-height: 100vh;
+  color: var(--dark-text);
+  line-height: 1.6;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1rem;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+/* App.jsx */
+.App {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Expensetrack.jsx */
+.ExpenseTrack {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.ExpenseTrack h2 {
+  color: var(--primary-dark);
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 2.2rem;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.ExpenseTrack h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  border-radius: 2px;
+}
+
+/* Expenseform.jsx */
+.ExpenseForm {
+  background: var(--light-bg);
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.ExpenseForm h3 {
+  color: var(--primary-dark);
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+}
+
+.ExpenseForm form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ExpenseForm .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ExpenseForm label {
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.ExpenseForm input {
+  padding: 0.75rem;
+  border: 2px solid #ddd;
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.ExpenseForm input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+
+.ExpenseForm button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  font-weight: 600;
+  transition: var(--transition);
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  align-self: flex-start;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+.ExpenseForm button:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Expensesummary.jsx */
+.ExpenseSummary {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 2rem;
+  box-shadow: var(--box-shadow);
+}
+
+.ExpenseSummary h3 {
+  color: white;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+}
+
+.ExpenseSummary p {
+  margin: 0.75rem 0;
+  font-size: 1.1rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+}
+
+.ExpenseSummary p:last-child {
+  font-weight: bold;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  padding-top: 0.75rem;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+/* Expenselist.jsx */
+.ExpenseList {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+}
+
+.ExpenseList h3 {
+  color: var(--primary-dark);
+  margin-bottom: 1.2rem;
+  font-size: 1.5rem;
+}
+
+.ExpenseList ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.ExpenseList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid #eee;
+  transition: var(--transition);
+}
+
+.ExpenseList li:last-child {
+  border-bottom: none;
+}
+
+.ExpenseList li:hover {
+  background-color: var(--light-bg);
+  border-radius: var(--border-radius);
+}
+
+.expense-info {
+  flex-grow: 1;
+}
+
+.expense-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.expense-amount {
+  font-weight: 600;
+}
+
+.expense-amount.positive {
+  color: var(--success);
+}
+
+.expense-amount.negative {
+  color: var(--danger);
+}
+
+.expense-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.expense-actions button {
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: var(--transition);
+}
+
+.expense-actions button:first-child {
+  background-color: var(--warning);
+  color: var(--dark-text);
+}
+
+.expense-actions button:first-child:hover {
+  background-color: #e6b301;
+}
+
+.expense-actions button:last-child {
+  background-color: var(--danger);
+  color: white;
+}
+
+.expense-actions button:last-child:hover {
+  background-color: #d03437;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  #root {
+    padding: 1rem 0.5rem;
   }
-  a:hover {
-    color: #747bff;
+  
+  .ExpenseTrack {
+    padding: 1.5rem;
   }
-  button {
-    background-color: #f9f9f9;
+  
+  .ExpenseForm {
+    padding: 1rem;
   }
+  
+  .ExpenseList li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  .expense-actions {
+    align-self: stretch;
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .expense-actions button {
+    flex: 1;
+  }
+}
+
+/* Animation for new items */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ExpenseList li {
+  animation: fadeIn 0.3s ease;
 }

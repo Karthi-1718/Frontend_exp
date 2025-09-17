@@ -12,11 +12,13 @@ export default function Expensesummary({ expense }) {
   const balance = income + totalExpense; 
 
   return (
+    <div className="ExpenseSummary">
     <div>
       <h3>Expense Summary</h3>
       <p>Income: ₹{income}</p>
       <p>Expense: ₹{Math.abs(totalExpense)}</p>
       <p>Balance: ₹{balance}</p>
+    </div>
     </div>
   );
 }
